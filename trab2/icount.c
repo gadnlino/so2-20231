@@ -61,7 +61,7 @@ void count_files(const char *path) {
 void check_st_mode(const char *path) {
   struct stat path_stat;
   if (lstat(path, &path_stat) != 0) {
-    printf("Arquivo nao existe: %s", path);
+    printf("Arquivo nao existe: %s\n", path);
     exit(errno);
   }
 
@@ -71,7 +71,7 @@ void check_st_mode(const char *path) {
     }
   }
   if (inodes_counter >= file_counter) {
-    printf("tem mais inode que arquivo wtf");
+    printf("tem mais inode que arquivo\n");
     exit(1);
   }
   lista_inodes[inodes_counter++] = path_stat.st_ino;
@@ -103,7 +103,7 @@ int main(int argc, char **argv) {
   }
 
   if (optind + 1 != argc) {
-    printf("passou parametros demais");
+    printf("passou parametros demais\n");
     return 1;
   }
 
