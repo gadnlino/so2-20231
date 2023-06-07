@@ -4,7 +4,7 @@
 #include <unistd.h>
 #include <string.h>
 
-const char *ARQUIVO_LOG = "./saida.log";
+#define ARQUIVO_LOG "./saida.log"
 
 void finish()
 {
@@ -39,9 +39,10 @@ void escreve_delimitador()
 
 void write_zombie_processes()
 {
-    char command[100] = "ps -e -o s,pid:10,ppid:10,comm | grep '^Z' | cut -d' ' -f2- | rev | cut -d' ' -f2- | rev >> ";
-    strcat(command, ARQUIVO_LOG);
-    system(command);
+    // char command[100] = "ps -e -o s,pid:10,ppid:10,comm | grep '^Z' | cut -d' ' -f2- | rev | cut -d' ' -f2- | rev >> ";
+    // strcat(command, ARQUIVO_LOG);
+    // system(command);
+    system("ps -e -o s,pid:10,ppid:10,comm | grep '^Z' | cut -d' ' -f2- | rev | cut -d' ' -f2- | rev >> " ARQUIVO_LOG);
 }
 
 int main(int argc, char **argv)
