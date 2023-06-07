@@ -39,14 +39,25 @@ void escreve_delimitador()
 
 void write_zombie_processes()
 {
-    char command[97] = "ps -e -o s,pid,ppid,comm | grep '^Z' | cut -d' ' -f3- | rev | cut -d' ' -f2- | rev >> ";
+    char command[100] = "ps -e -o s,pid:10,ppid:10,comm | grep '^Z' | cut -d' ' -f2- | rev | cut -d' ' -f2- | rev >> ";
     strcat(command, ARQUIVO_LOG);
     system(command);
 }
 
 int main(int argc, char **argv)
 {
+    if (argc < 2) {
+        printf("Favor passar o parametro n\n");
+        exit(1);
+    }
 
+    int n = atoi(argv[1]);
+
+    if(n < 1){
+        printf("n deve ser maior ou igual a 1\n");
+        exit(1);
+    }
+    
     if (fork())
     {
         exit(0);
@@ -59,15 +70,8 @@ int main(int argc, char **argv)
         signal(i, do_nothing);
     }
 
-    signal(SIGINT, finish);
-    signal(SIGTERM, finish);
-
-    if (argc < 2) {
-        printf("Passa o parametro, po\n");
-        exit(1);
-    }
-
-    int n = atoi(argv[1]);
+    signal(SIGINT, do_nothing);
+    signal(SIGTERM, finish);    
 
     while (1)
     {
