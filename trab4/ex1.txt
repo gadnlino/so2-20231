@@ -27,4 +27,6 @@ O process ID deste script 1579
 Exit status do comando anterior 0
 "
 
-Os primeiros prints foram, respectivamente, a variável PATH da shell que executou o comando, o nome de usuário que executou o comando e a pasta home do usuário
+Os primeiros prints foram, respectivamente, a variável PATH da shell que executou o comando, o nome de usuário que executou o comando e a pasta home do usuário. Em seguida, ele imprimiu o valor das variáveis "ola" e "olaJoao" junto com outros textos, mas como elas não existiam nada foi impresso no lugar delas, o que levou às mensagens " Joao", linha vazia e " Joao".
+Após isso, o script criou uma variável $msg com algum texto, e em seguida ele imprimiu a string "msg".
+Daí ele imprimiu a mensagem "Escreva uma mensagem", leu a entrada do terminal na variável "var", e imprimiu na linha seguinte a string "Recebeu " seguida do valor da variável $var, que foi passada pela entrada padrão. 
