@@ -18,7 +18,7 @@ echo $data
 info=`echo $HOME ; echo " estamos em "; pwd`
 echo $info
 #contas
-X=1
+x=1
 let x=x+2+3
 echo "x=$x"
 x=$((x+3))

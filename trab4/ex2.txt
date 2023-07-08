@@ -1,0 +1,3 @@
+O comando banner está sendo executado com a saída do comando "date | cut -c13-20" como parâmetro de linha de comando.
+A primeira parte do comando "date | cut -c13-20" imprime a data e hora atual, e a segunda parte pega apenas o último caractere da hora até o último caractere dos segundos.
+Com isso, o comando "banner" imprime esses 7 caracteres de forma bem grande no terminal usando o caractere "#" como pixel para mostrar a mensagem.
